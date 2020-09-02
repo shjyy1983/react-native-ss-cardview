@@ -8,6 +8,7 @@
 
 #import "SsCardview.h"
 #import "JWT.h"
+#import "SSNetManager.h"
 
 @implementation SsCardview
 
@@ -29,5 +30,16 @@ RCT_REMAP_METHOD(decode,
     rejecter: (RCTPromiseRejectBlock) reject) {
     resolve(@"Hello world 2");
 }
+
+RCT_REMAP_METHOD(request,
+    urlString: (NSString *) urlString
+    resolver: (RCTPromiseResolveBlock) resolve
+    rejecter: (RCTPromiseRejectBlock) reject) {
+    [SSNetManager.instance request:urlString params:nil resultBlock:^(NSDictionary *results) {
+        NSLog(@"%@", results);
+        resolve(results);
+    }];
+}
+
 
 @end

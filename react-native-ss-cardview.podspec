@@ -23,6 +23,7 @@ Pod::Spec.new do |s|
 
   s.dependency "React"
   s.dependency 'JWT', '3.0.0-beta.11'
+  s.dependency 'AFNetworking', '3.2.0'
   # ...
   # s.dependency "..."
 end
