@@ -1,6 +1,6 @@
 require "json"
 
-package = JSON.parse(File.read(File.join(__dir__, "package.json")))
+package = JSON.parse(File.read(File.join(__dir__, "./package.json")))
 
 Pod::Spec.new do |s|
   s.name         = "react-native-ss-cardview"
@@ -22,6 +22,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.dependency "React"
+  s.dependency 'JWT', '3.0.0-beta.11'
   # ...
   # s.dependency "..."
 end

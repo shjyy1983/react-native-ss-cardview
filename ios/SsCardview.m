@@ -7,21 +7,27 @@
 //
 
 #import "SsCardview.h"
-
-RCT_EXPORT_MODULE()
+#import "JWT.h"
 
 @implementation SsCardview
 
-- (UIView *)view
+- (dispatch_queue_t)methodQueue
 {
-    // TODO: Implement some actually useful functionality
-    UILabel * label = [[UILabel alloc] init];
-    [label setTextColor:[UIColor redColor]];
-    [label setText: @"hello world2"];
-    [label sizeToFit];
-    UIView * wrapper = [[UIView alloc] init];
-    [wrapper addSubview:label];
-    return wrapper;
+    return dispatch_get_main_queue();
+}
+RCT_EXPORT_MODULE()
+
+RCT_REMAP_METHOD(sign,
+    resolver: (RCTPromiseResolveBlock) resolve
+    rejecter: (RCTPromiseRejectBlock) reject) {
+    resolve(@"Hello world 1");
+}
+
+RCT_REMAP_METHOD(decode,
+    token: (NSString *) token
+    resolver: (RCTPromiseResolveBlock) resolve
+    rejecter: (RCTPromiseRejectBlock) reject) {
+    resolve(@"Hello world 2");
 }
 
 @end

@@ -3,12 +3,13 @@
   "title": "React Native Ss Cardview",
   "version": "1.0.2",
   "description": "TODO",
-  "main": "index.js",
+  "main": "js/index.js",
   "files": [
     "README.md",
     "android",
-    "index.js",
-    "ios"
+    "js/index.js",
+    "ios",
+    "react-native-ss-cardview.podspec"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

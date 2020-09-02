@@ -9,3 +9,12 @@ react-native run-android
 react-native bundle --entry-file index.js --bundle-output ./ios/bundle/index.ios.jsbundle --platform ios --assets-dest ./ios/bundle --dev false
 
 react-native bundle --entry-file index.js --platform android --bundle-output ./android/app/src/main/assets/index.android.bundle --assets-dest ./android/app/src/main/res/ --dev false
+
+
+
+
+[参考]
+https://medium.com/@zaguiini/using-cocoapods-dependencies-in-react-native-libraries-de5198a83dac
+https://github.com/zaguiini/react-native-pure-jwt
+
+https://medium.com/wix-engineering/creating-a-native-module-in-react-native-93bab0123e46
