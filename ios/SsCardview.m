@@ -17,7 +17,7 @@ RCT_EXPORT_MODULE()
     // TODO: Implement some actually useful functionality
     UILabel * label = [[UILabel alloc] init];
     [label setTextColor:[UIColor redColor]];
-    [label setText: @"hello world"];
+    [label setText: @"hello world2"];
     [label sizeToFit];
     UIView * wrapper = [[UIView alloc] init];
     [wrapper addSubview:label];
