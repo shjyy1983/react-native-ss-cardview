@@ -8,16 +8,16 @@
 
 #import "SsCardview.h"
 
-@implementation SsCardview
-
 RCT_EXPORT_MODULE()
+
+@implementation SsCardview
 
 - (UIView *)view
 {
     // TODO: Implement some actually useful functionality
     UILabel * label = [[UILabel alloc] init];
     [label setTextColor:[UIColor redColor]];
-    [label setText: @"hello 12345"];
+    [label setText: @"hello world"];
     [label sizeToFit];
     UIView * wrapper = [[UIView alloc] init];
     [wrapper addSubview:label];

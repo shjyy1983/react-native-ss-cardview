@@ -1,0 +1,11 @@
+ios 调试
+react-native run-ios --simulator "iPhone 8"
+
+android 调试
+/Users/hj/Library/Android/sdk/emulator/emulator -avd Nexus_5X_API_29
+react-native run-android
+
+
+react-native bundle --entry-file index.js --bundle-output ./ios/bundle/index.ios.jsbundle --platform ios --assets-dest ./ios/bundle --dev false
+
+react-native bundle --entry-file index.js --platform android --bundle-output ./android/app/src/main/assets/index.android.bundle --assets-dest ./android/app/src/main/res/ --dev false
