@@ -29,6 +29,11 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.SignatureException;
 import io.jsonwebtoken.impl.DefaultClaims;
 
+import okhttp3.Call;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+
 public class SsCardviewModule extends ReactContextBaseJavaModule {
   public SsCardviewModule(ReactApplicationContext reactContext) {
     super(reactContext);
@@ -47,5 +52,30 @@ public class SsCardviewModule extends ReactContextBaseJavaModule {
   @ReactMethod
   public void decode(String token, Promise callback) {
     callback.resolve("hello world 2");
+  }
+
+  @ReactMethod
+  public void request(String urlString, Promise callback) {
+    final String Link = urlString;
+    final Promise _callback = callback;
+    Runnable requestTask = new Runnable() {
+      @Override
+      public void run() {
+          try {
+              OkHttpClient client = new OkHttpClient();
+              Request request = new Request.Builder().url(Link).build();
+              Call call = client.newCall(request);
+              Response response = call.execute();
+
+              String result = response.body().string();
+              _callback.resolve(result);
+          } catch (Exception ex) {
+            _callback.reject("error");
+          }
+        }
+    };
+
+    Thread requestThread = new Thread(requestTask);
+    requestThread.start();
   }
 }
